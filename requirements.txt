@@ -1,7 +1,0 @@
-joblib==0.13.2
-pandas==1.0.*
-Pillow==9.5.0
-requests==2.22.0
-scikit_surprise==1.1.1
-streamlit==1.20.0
-surprise==0.1
