@@ -2,8 +2,8 @@ import pandas as pd
 import requests
 from PIL import Image
 
-movies = pd.read_csv('~/Movie_Recommender/movies.csv')
-ratings = pd.read_csv('~/Movie_Recommender/ratings.csv')
+movies = pd.read_csv('movies.csv')
+ratings = pd.read_csv('ratings.csv')
 
 # movies['year'] = movies.title.str[-5:-1]
 # movies['title'] = movies.title.str[:-7]

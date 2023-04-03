@@ -8,8 +8,8 @@ from utils import movie_ids, movie_titles, movie_dict, rating_list, movies_rpm, 
 import time
 
 #Read in data and model
-ratings = pd.read_csv('~/Movie_Recommender/ratings.csv')
-links = pd.read_csv('~/Movie_Recommender/links.csv')
+ratings = pd.read_csv('ratings.csv')
+links = pd.read_csv('links.csv')
 
 # movies = pd.read_csv('~/Movie_Recommender/movies.csv')
 # model = SVD()
