@@ -3,7 +3,7 @@
 Click [here](https://eeorenstein-movie-recommender-app-q5vime.streamlit.app/) to access the app.
 
 ## Background
-Recommender systems play a powerful role in our daily lives, prioritizing (and narrowing down) the options available to a user. These systems are widespread, ultimately impacting what we watch, listen to, and purchase. Unfortunately, many popular movie and TV streaming platforms generate recommendations with limited input from the user. 
+Recommender systems play a powerful role in our daily lives, prioritizing (and narrowing down) the options available to a user. These systems are widespread, ultimately impacting what we watch, listen to, and purchase. However, many popular movie and TV streaming platforms generate recommendations with limited input from the user. 
 
 ## Methodology
 The goal of this project is to create and deploy a movie recommender web app that allows users to be more explicit with their preferences. 
