@@ -11,18 +11,15 @@ import time
 ratings = pd.read_csv('ratings.csv')
 links = pd.read_csv('links.csv')
 
-# movies = pd.read_csv('~/Movie_Recommender/movies.csv')
-# model = SVD()
-
 #Initializing session state
 if 'movie_counter' not in st.session_state:
     st.session_state['movie_counter'] = 0
 
+if 'seen_movies' not in st.session_state:
+    st.session_state['seen_movies'] = []
+
 if 'unseen_movies' not in st.session_state:
     st.session_state['unseen_movies'] = movie_titles
-
-# if 'default_rating' not in st.session_state:
-#     st.session_state['default_rating'] = 3.0
 
 if 'add_trainset' not in st.session_state:
     st.session_state['add_trainset'] = []
@@ -55,14 +52,11 @@ with tab0:
                     \n When you're done, you can refresh the page to start over. Happy movie watching!''')
 with tab1:
     st.markdown('### Add rated movies to your user profile')
-    # st.metric("Number of Movies Rated", st.session_state['movie_counter'])
 
     #Input movies seen
     movie = st.selectbox('Movie Title', options=st.session_state['unseen_movies'])
     movieId = [i for i in movie_dict.keys() if movie_dict[i]==movie][0]
     rating = st.slider('Movie Rating', min_value=0.5, max_value=5.0, value=3.0, step=0.5)
-
-    # n_preds = st.slider("Choose number of movie recs", 5, 15)
 
     #Preparing train set
     session_userId = ratings.userId.max() + 1
@@ -78,7 +72,8 @@ with tab1:
         st.session_state['last_movie'] = movie
         st.session_state['add_trainset'].append((session_userId, movieId, rating, time.time()))
         st.session_state['user_history'].append((movie, rating))
-        st.session_state['unseen_movies'].remove(movie)
+        st.session_state['seen_movies'].append(movie)
+        st.session_state['unseen_movies'] = [i for i in movie_titles if i not in st.session_state['seen_movies']]
         st.success('You have successfully added {} ({} :star: out of 5.0) to your rated movies'.format(movie, rating))
 
     if new_rating_button:
@@ -93,14 +88,6 @@ with tab1:
         else:
             users_ratings_df = pd.DataFrame(st.session_state['user_history'], columns=['Title','Rating'])
             st.dataframe(users_ratings_df)
-
-
-# start_over_button = st.button("Reset")
-# if start_over_button:
-#     for key in st.session_state.keys():
-#         del st.session_state[key]
-
-# st.table(ratings.head())
 
 #Movie rec filters
 with tab2:
@@ -122,7 +109,6 @@ with tab2:
 
         if add_genre_button:
             st.session_state['genre_recs'].append(genre)
-            # st.session_state['remaining_genres'].remove(genre)
             st.session_state['remaining_genres'] = [i for i in genre_list if i not in st.session_state['genre_recs']]
         
         if new_genre_button:
@@ -198,8 +184,6 @@ with tab2:
         st.markdown('## Your top {} movie recommendations:'.format(n_preds))
         return best_preds_df
 
-    # st.write('Select movie age')
-    # age = st.selectbox('Movie Age', options = ['New', '21st century', ''])
     st.markdown('##')
     recs_button = st.button("Find my recommended movies", use_container_width=True)
     if recs_button:
