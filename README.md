@@ -1,5 +1,7 @@
 # Customizable Movie Recommender
 
+Click [here](https://eeorenstein-movie-recommender-app-q5vime.streamlit.app/) to access the app.
+
 ## Background
 Recommender systems play a powerful role in our daily lives, prioritizing (and narrowing down) the options available to a user. These systems are widespread, ultimately impacting what we watch, listen to, and purchase. Unfortunately, many popular movie and TV streaming platforms generate recommendations with limited input from the user. 
 
