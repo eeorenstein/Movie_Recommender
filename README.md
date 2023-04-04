@@ -47,3 +47,6 @@ The web app ultimately helps the user take back control of their recommendations
 * Requests
 * PIL
 * Streamlit
+
+## Future Work
+On the design side, I would like to add more user features, including the ability to remove a rating. Also, as it is currently constructed, user's ratings are not added to the dataset. Storing a user's ratings for future use would allow users to return to the app to add and amend ratings and the additional data could help improve the quality of recommendations.
