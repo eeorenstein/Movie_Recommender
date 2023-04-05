@@ -25,7 +25,7 @@ genre_list = ['Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime',
 
 def get_poster(movieId):
     movie_id = int(movieId)
-    key = st.secret['api']
+    key = st.secrets['api']
     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key={}&language=en-US'.format(movie_id, key))
     poster_path = response.json()['poster_path']
     im = Image.open(requests.get('https://image.tmdb.org/t/p/original{}'.format(poster_path), stream=True).raw)
