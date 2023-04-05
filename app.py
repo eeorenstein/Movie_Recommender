@@ -143,7 +143,7 @@ with tab2:
         filtered_unseen_movies_df = unseen_movies_df[unseen_movies_df[genres].sum(axis=1) > 0]
         if popularity == 'Mainstream':
             filtered_unseen_movies_df = filtered_unseen_movies_df[filtered_unseen_movies_df.n_ratings >= 50]
-        elif popularity == 'Lesser Known':
+        elif popularity == 'Sleepers':
             filtered_unseen_movies_df = filtered_unseen_movies_df[filtered_unseen_movies_df.n_ratings <= 50]
 
         filtered_unseen_movieIds = list(filtered_unseen_movies_df.movieId)
