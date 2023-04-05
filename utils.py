@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 from PIL import Image
+import streamlit as st
 
 movies = pd.read_csv('movies.csv')
 ratings = pd.read_csv('ratings.csv')
@@ -24,7 +25,7 @@ genre_list = ['Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime',
 
 def get_poster(movieId):
     movie_id = int(movieId)
-    key = '0bf3d77b45573e6cf57441dc7ed2fb3a'
+    key = st.secret['api']
     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key={}&language=en-US'.format(movie_id, key))
     poster_path = response.json()['poster_path']
     im = Image.open(requests.get('https://image.tmdb.org/t/p/original{}'.format(poster_path), stream=True).raw)
