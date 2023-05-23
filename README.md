@@ -22,7 +22,7 @@ Data used to build the recommender includes:
 
 ## Key Insights
 An analysis of the MovieLens dataset lended some valuable insights:
-The distribution of ratings was slightly left-skewed
+The distribution of ratings was slightly right-skewed
 More than one third of the 9,000 movies were rated only once
 Nearly one fifth of users rated fewer than 30 movies (the minimum number of movies rated by any user is 20)
 
